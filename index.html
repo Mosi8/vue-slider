@@ -11,7 +11,7 @@
     </head>
     <body>
         <section id="magia">
-            <div class="container ms_container p-0">
+            <div class="container ms_container p-0" @autoplay="autoplay">
                 <div class="row h-100 m-0">
                     <div class="col-9 h-100 p-0">
                         <div  class="h-100 position-relative">
@@ -26,7 +26,7 @@
                         <div class="up circle ms_pabsolute_top" @click="precedente"><i class="fas fa-chevron-up vertical_align"></i></div>
                         <div class="down circle ms_pabsolute_bottom" @click="successiva"><i class="fas fa-chevron-down vertical_align"></i></div>
                         <div class="row h-100 m-0">
-                            <div v-for="(elem, index) in cartoline" class="col-12 p-0 ms_h20" :class="selezionata(index)">
+                            <div v-for="(elem, index) in cartoline" class="col-12 p-0 ms_h20" :class="selezionata(index)" @click="seleziona(index)">
                                 <img :src="elem.immagine">
                             </div>
                         </div>

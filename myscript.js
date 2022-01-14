@@ -44,6 +44,9 @@ let app = new Vue ({
             }
             return 'ms_oscura'
         },
+        seleziona : function (indice) {
+            this.visualizzata = indice;
+        },
         successiva : function () {
             this.visualizzata++;
             if(this.visualizzata == this.cartoline.length){
@@ -56,6 +59,9 @@ let app = new Vue ({
                 this.visualizzata = this.cartoline.length - 1;
             };
         },
+        autoplay : function() {
+            setTimeout(this.successiva, 1000);
+        }
         
     }
 }
