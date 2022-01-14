@@ -59,12 +59,8 @@ let app = new Vue ({
                 this.visualizzata = this.cartoline.length - 1;
             };
         },
-        stop : function (indice) {
-            this.visualizzata = indice;
-        }
-        
     },
-    mounted : function(){
+    mounted : function (){
         setInterval(this.successiva, 3000);
     }
 }
