@@ -10,38 +10,32 @@
         <title>Carosello Multi Array</title>
     </head>
     <body>
-        <section>
+        <section id="magia">
             <div class="container ms_container p-0">
                 <div class="row h-100 m-0">
                     <div class="col-9 h-100 p-0">
-                        <div  class="h-100 position-relative" id="img_grande"></div>
+                        <div  class="h-100 position-relative">
+                            <img v-for="(elem, index) in cartoline" :class="mostra(index)" :src="elem.immagine">
+                                <div class="ms_posAbs">
+                                    <div v-for="(elem, index) in cartoline" :class="mostra(index)" class="text-end ms_title">{{elem.luogo}}</div>
+                                    <div v-for="(elem, index) in cartoline" :class="mostra(index)" class="text-end ms_text">{{elem.testo}}</div>
+                                </div>
+                        </div>
                     </div>
                     <div class="col-3 h-100 p-0 position-relative">
-                        <div class="up circle ms_pabsolute_top"><i class="fas fa-chevron-up vertical_align"></i></div>
-                        <div class="down circle ms_pabsolute_bottom"><i class="fas fa-chevron-down vertical_align"></i></div>
-                        <div class="row h-100 m-0" id="img_piccole">
-                            <!-- lista creata con js
-                            <div class="col-12 p-0 ms_h20">
-                                <img src="img/01.jpg">
+                        <div class="up circle ms_pabsolute_top" @click="precedente"><i class="fas fa-chevron-up vertical_align"></i></div>
+                        <div class="down circle ms_pabsolute_bottom" @click="successiva"><i class="fas fa-chevron-down vertical_align"></i></div>
+                        <div class="row h-100 m-0">
+                            <div v-for="(elem, index) in cartoline" class="col-12 p-0 ms_h20" :class="selezionata(index)">
+                                <img :src="elem.immagine">
                             </div>
-                            <div class="col-12 p-0 ms_h20">
-                                <img src="img/02.jpg">
-                            </div>
-                            <div class="col-12 p-0 ms_h20">
-                                <img src="img/03.jpg">
-                            </div>
-                            <div class="col-12 p-0 ms_h20">
-                                <img src="img/04.jpg">
-                            </div>
-                            <div class="col-12 p-0 ms_h20">
-                                <img src="img/05.jpg">
-                            </div> 
-                            -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="myscript.js"></script>
     </body>
 </html>
