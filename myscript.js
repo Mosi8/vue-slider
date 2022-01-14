@@ -59,10 +59,13 @@ let app = new Vue ({
                 this.visualizzata = this.cartoline.length - 1;
             };
         },
-        autoplay : function() {
-            setTimeout(this.successiva, 1000);
+        stop : function (indice) {
+            this.visualizzata = indice;
         }
         
+    },
+    mounted : function(){
+        setInterval(this.successiva, 3000);
     }
 }
 );
