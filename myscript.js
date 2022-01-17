@@ -2,6 +2,7 @@ let app = new Vue ({
     el : '#magia',
     data : {
         visualizzata : 0,
+        scorri : null,
         cartoline : [
             {
                 'immagine' : 'img/01.jpg',
@@ -59,9 +60,16 @@ let app = new Vue ({
                 this.visualizzata = this.cartoline.length - 1;
             };
         },
+        autoplay : function(){
+            this.scorri = setInterval(this.successiva, 3000);
+        },
+        stoplay : function(){
+            clearInterval(this.scorri);
+            this.scorri = null;
+        }
     },
     mounted : function (){
-        setInterval(this.successiva, 3000);
+        this.autoplay();
     }
 }
 );
